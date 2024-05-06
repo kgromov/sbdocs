@@ -9,9 +9,6 @@ import org.springframework.ai.reader.pdf.config.PdfDocumentReaderConfig;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Component;
@@ -32,7 +29,7 @@ public class ReferenceDocsLoader {
 
     @PostConstruct
     public void init() {
-        Integer count = jdbcClient.sql("select count(*) from vector_store")
+        var count = jdbcClient.sql("select count(*) from vector_store")
                 .query(Integer.class)
                 .single();
 

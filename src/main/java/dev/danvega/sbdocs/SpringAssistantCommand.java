@@ -33,7 +33,7 @@ public class SpringAssistantCommand {
         PromptTemplate promptTemplate = new PromptTemplate(sbPromptTemplate);
         Map<String, Object> promptParameters = new HashMap<>();
         promptParameters.put("input", message);
-        promptParameters.put("documents", String.join("\n", findSimilarDocuments(message)));
+        promptParameters.put("documents", String.join("\n", this.findSimilarDocuments(message)));
 
         return chatClient.call(promptTemplate.create(promptParameters))
                 .getResult()

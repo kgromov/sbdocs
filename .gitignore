@@ -33,3 +33,4 @@ build/
 .vscode/
 
 /src/main/resources/docs/spring-boot-reference.pdf
+/mvn
